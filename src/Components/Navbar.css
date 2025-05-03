@@ -1,0 +1,37 @@
+/* Reset basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #aadcf5; */
+  padding: 15px 30px;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1e2d3b;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: #02082c;
+  font-size: 16px;
+}
+
+.nav-links li a:hover {
+  color: #80dc8b;
+  transition: color 0.4s ease;
+}

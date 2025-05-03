@@ -1,0 +1,29 @@
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 5%;
+  position: relative;
+}
+.card-img {
+  width: 300px;
+  border-radius: 5%;
+}
+.cards-con {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+.cards:hover {
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  border: 2px solid #45474a;
+  transform: scale(1.05);
+}
+.text {
+  margin-left: 10px;
+}
