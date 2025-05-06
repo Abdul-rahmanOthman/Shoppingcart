@@ -1,6 +1,11 @@
 import React from "react";
 import "./Navbar.css";
-const Navbar = () => {
+import { FaShoppingCart } from "react-icons/fa";
+import { useContext } from "react";
+import { Shoppingcon } from "../context/Shoppingcon";
+const Navbar = ({setshowcart,showcart}) => {
+  const { cartitems } = useContext(Shoppingcon);
+
   const links = [
     { title: "women", url: "/" },
     { title: "men", url: "/" },
@@ -8,7 +13,6 @@ const Navbar = () => {
   ];
   return (
     <nav className="navbar">
-      
       <ul className="nav-links">
         {links.map((link) => {
           return (
@@ -17,6 +21,12 @@ const Navbar = () => {
             </li>
           );
         })}
+        <button className="button" type="button" onClick={()=>setshowcart(!showcart)}>
+          <FaShoppingCart color="white" />
+        </button>
+        {cartitems.length > 0 && (
+          <span className="bubble">{cartitems.length}</span>
+        )}
       </ul>
     </nav>
   );

@@ -1,3 +1,31 @@
 #root {
-  margin: 0 ;
+  margin: 0;
+}
+.cardoverlay {
+  position: absolute;
+  right: 70px;
+  top: 70px;
+  background-color: blanchedalmond;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+}
+.cartcon {
+  display: flex;
+  flex-direction: column;
+}
+.color-container {
+  display: flex;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.color-dot {
+  all: unset;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border: 2px solid #fff;
+}
+.size-button {
+  display: flex;
+  flex-direction: row;
 }

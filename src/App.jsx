@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -8,20 +8,14 @@ import Navbar from "./Components/Navbar";
 import Offers from "./Components/Offers";
 import Form from "./Components/Form";
 import Test from "./Components/Test";
+import { Shoppingcon } from "./context/Shoppingcon";
 
 function App() {
   const [fdata, setfdata] = useState([]);
   const [isloading, setisloading] = useState(false);
-  const initialcartitems = localStorage.getItem("cartitems")
-    ? JSON.parse(localStorage.getItem("cartitems"))
-    : [];
-  const [cartitems, setcartitems] = useState(initialcartitems);
-
+  const { cartitems } = useContext(Shoppingcon);
+  const [showcart, setshowcart] = useState(false);
   const shut = useRef(true);
-
-  useEffect(()=>{
-    localStorage.setItem('cartitems',JSON.stringify(cartitems));
-  },[cartitems]);
 
   useEffect(() => {
     const Getdata = async () => {
@@ -46,23 +40,44 @@ function App() {
   return (
     <>
       {isloading && <p>loading.....</p>}
-      <Navbar />
+      <Navbar setshowcart={setshowcart} showcart={showcart} />
       <h1>women</h1>
 
-      <Cards setcartitems={setcartitems} />
+      <Cards />
       <Form />
-      {/* {JSON.stringify(fdata)} */}
-      <h1>#cartitems {cartitems.length}</h1>
-      <div className="cards-con">
-        {cartitems.map((items) => (
-          <div className="cards">
-            <img src={items.image} alt={items.title} className="card-img" />
-            <h4>{items.title}</h4>
-            <p>{items.price}</p>
-          </div>
-        ))}
-      </div>
 
+      <div className="cardoverlay">
+        {showcart && (
+          <div className="cartcon">
+            <h4>my bag:{cartitems.length}</h4>
+            {cartitems.map((items) => (
+              <div className="cards">
+                <img src={items.image} alt={items.title} className="card-img" />
+                <div style={{ display: "flex", flexDirection: "row" }}>
+                  <h4>{items.title}</h4>
+                  <button>+</button>
+                </div>
+                <p>{items.price}</p>
+                <div className="color-container">
+                  {Array.isArray(items.color) &&
+                    items.color.map((color) => (
+                      <button
+                        className="color-dot"
+                        style={{ backgroundColor: color }}
+                      ></button>
+                    ))}
+                  <button>-</button>
+                </div>
+                <div>
+                  {items.size.map((size) => (
+                    <button>{size}</button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
       {!isloading && fdata && <Test item={fdata} />}
     </>
   );
