@@ -11,6 +11,9 @@
 .card-img {
   width: 300px;
   border-radius: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .cards-con {
   display: flex;
@@ -26,4 +29,35 @@
 }
 .text {
   margin-left: 10px;
+}
+.buttonstyle {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  background-color: rgb(30, 189, 136);
+  border-radius: 70px;
+  visibility: hidden;
+  opacity: 0;
+}
+.cards:hover .buttonstyle {
+  visibility: visible;
+  opacity: 1;
+}
+
+.out-of-stock {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.out-of-stock::after {
+  content: "Out of Stock";
+  position: absolute;
+  justify-content: center;
+  background-color: black;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+
+  font-size: 14px;
+  font-weight: bold;
 }
