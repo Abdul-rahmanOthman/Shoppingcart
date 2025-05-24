@@ -20,6 +20,7 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: 20px;
+  
 }
 .cards:hover {
   border-radius: 5px;

@@ -6,7 +6,7 @@ import { Shoppingcon } from "../context/Shoppingcon";
 import { useContext } from "react";
 import "./cards.css";
 
-const Button = ({ block }) => {
+const Button = ({ block, style, lable = "add" }) => {
   const { setcartitems } = useContext(Shoppingcon);
 
   const handel = (block) => {
@@ -28,11 +28,16 @@ const Button = ({ block }) => {
   return (
     <div className="conbut">
       <button
+        style={style}
         className="buttonstyle"
         type="button"
-        onClick={() => handel(block)}
+        onClick={(e) => {
+          e.stopPropagation();
+          handel(block);
+        }}
       >
-        <FaShoppingCart color="white" />
+        {lable}
+        {/* <FaShoppingCart color="white" /> */}
       </button>
     </div>
   );

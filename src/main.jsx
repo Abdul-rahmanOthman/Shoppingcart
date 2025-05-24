@@ -10,9 +10,8 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Shoppingconprovider>
       <BrowserRouter>
-        
+        <App />
       </BrowserRouter>
-      <App />
     </Shoppingconprovider>
     <Toaster />
   </StrictMode>

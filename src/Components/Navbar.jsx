@@ -3,13 +3,15 @@ import "./Navbar.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { useContext } from "react";
 import { Shoppingcon } from "../context/Shoppingcon";
-const Navbar = ({setshowcart,showcart}) => {
+import { useNavigate } from "react-router-dom";
+
+const Navbar = ({ setshowcart, showcart }) => {
   const { cartitems } = useContext(Shoppingcon);
 
   const links = [
-    { title: "women", url: "/" },
+    { title: "women", url: "/women" },
     { title: "men", url: "/" },
-    { title: "kids", url: "/" },
+    { title: "kids", url: "/Kids" },
   ];
   return (
     <nav className="navbar">
@@ -21,7 +23,11 @@ const Navbar = ({setshowcart,showcart}) => {
             </li>
           );
         })}
-        <button className="button" type="button" onClick={()=>setshowcart(!showcart)}>
+        <button
+          className="button"
+          type="button"
+          onClick={() => setshowcart(!showcart)}
+        >
           <FaShoppingCart color="white" />
         </button>
         {cartitems.length > 0 && (

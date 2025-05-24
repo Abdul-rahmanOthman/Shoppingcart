@@ -104,3 +104,13 @@
   margin-left: 10px;
   margin-bottom: 10px;
 }
+
+.smallpic {
+  border: 2px solid rgb(63, 196, 185);
+}
+.selected {
+  border: 5px solid black;
+}
+.smallpic:hover {
+  border: 3px solid rgb(0, 0, 0);
+}
