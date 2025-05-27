@@ -10,8 +10,10 @@ import { useContext } from "react";
 import Cart from "./Cart";
 const Product_details = () => {
   const { id } = useParams();
-  const [colored, setcolor] = useState(null);
-  const [sized, setsize] = useState(null);
+  const { colored } = useContext(Shoppingcon);
+  const { setcolor } = useContext(Shoppingcon);
+  const { sized } = useContext(Shoppingcon);
+  const { setsize } = useContext(Shoppingcon);
   const product = blocks.find((p) => p.id === id);
   const { showcart } = useContext(Shoppingcon);
   const { setshowcart } = useContext(Shoppingcon);
@@ -109,8 +111,7 @@ const Product_details = () => {
                 opacity: "1",
                 visibility: "visible",
                 width: "300px",
-                display: "flex",
-                flexWrap: "wrap",
+                color: "white",
               }}
               lable="add to cart"
             />

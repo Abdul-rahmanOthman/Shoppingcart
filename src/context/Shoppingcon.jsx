@@ -9,6 +9,8 @@ const initialcartitems = localStorage.getItem("cartitems")
 const Shoppingconprovider = ({ children }) => {
   const [cartitems, setcartitems] = useState(initialcartitems);
   const [showcart, setshowcart] = useState(false);
+  const [colored, setcolor] = useState(null);
+  const [sized, setsize] = useState(null);
 
   useEffect(() => {
     localStorage.setItem("cartitems", JSON.stringify(cartitems));
@@ -16,7 +18,16 @@ const Shoppingconprovider = ({ children }) => {
 
   return (
     <Shoppingcon.Provider
-      value={{ cartitems, setcartitems, showcart, setshowcart }}
+      value={{
+        cartitems,
+        setcartitems,
+        showcart,
+        setshowcart,
+        sized,
+        setsize,
+        colored,
+        setcolor,
+      }}
     >
       {children}
     </Shoppingcon.Provider>
